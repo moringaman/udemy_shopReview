@@ -1,0 +1,27 @@
+template(name="add_product")
+  h3 Add New Product
+  form(class="add_product" enctype="multipart/form-data")
+    div(class="form-group")
+      label  Name
+      input(type="text" name="name" class="form-control" placeholder="Product Name")
+    div(class="form-group")
+      label  Category
+      select(class="form-control" name="category")
+        option(value="0")  --Select Category--
+        +each categories
+          option(value="{{slug}}")= name
+    div(class="form-group")
+      label  Product Image
+      input(type="file" name="productImage" id="productImage")
+    div(class="form-group")
+      label  Description
+      textarea(name="description" class="form-control")
+    div(class="form-group")
+      label  Featured
+      input(type="radio" name="is_featured"  id="is_featured" value="1")
+      | Yes
+      input(type="radio" name="is_featured" id="is_featured" value="0" checked)
+      | No
+    div
+      input(type="submit" name="submit" class="btn btn-success" value="Add Product")
+      a(href="/" class="btn btn-default")  Close

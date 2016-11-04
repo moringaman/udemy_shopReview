@@ -1,0 +1,15 @@
+template(name='category_products')
+  h3  Products
+  br
+  +each category_products
+    div(class='row product-row')
+      div(class='col-md-2')
+        img(class='full' src='{{Image}}')
+      div(class='col-md-10')
+        h4= name
+        p Average rating: RATING
+        p  {{truncateText description 200}}  ...
+        a(href="{{pathFor 'product' }}" class='btn btn-default')  Read Reviews
+        a(href="{{pathFor 'new_review'}}" class='btn btn-primary')  Add Review
+  else
+   p There are no products in this category
